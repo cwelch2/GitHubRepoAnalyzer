@@ -6,8 +6,6 @@ import json
 # temporary for testing, asks for repo url to convert to json
 # repo = input("URL for Repo: ")
 
-
-##ADD CHECK TO MAKE SURE THE API CAN BE ACCESSED ASSFUCK!!!!!
 # makes a GET request to GitHub API and converts the response to JSON
 def get_repo_data(owner, name):
 
