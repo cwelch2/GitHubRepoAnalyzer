@@ -10,9 +10,9 @@ repo_owner = "pallets"
 repo_name = "flask"
 
 fetch_repo = fetch_data.get_repo_data(repo_owner, repo_name)
-# if repo was fetched, parse the data
+# if repo was fetched, parse the data using the filepath returned in fetch_repo
 if fetch_repo == 'data/repo_data.json':
-    print(parse_data.parse_repo_data())
+    print(parse_data.parse_repo_data(fetch_repo))
 
 # if repo wasn't fetched, check if it exists (code 404)
 elif fetch_repo == 404:
@@ -22,7 +22,7 @@ elif fetch_repo == 404:
 fetch_contributor = fetch_data.get_contributor_data(repo_owner, repo_name)
 # if contributors were fetched, parse the data.
 if fetch_contributor == 'data/contributor_data.json':
-    print(parse_data.parse_contributor_data())
+    print(parse_data.parse_contributor_data(fetch_contributor))
 
 # if contributors weren't fetched, check if they exist (code 204)
 elif fetch_contributor == 204:
@@ -32,11 +32,10 @@ elif fetch_contributor == 204:
 fetch_commit = fetch_data.get_commit_data(repo_owner,repo_name)
 # if commits were fetched, parse the data
 if fetch_commit == 'data/commit_data.json':
-    print(parse_data.parse_commit_data())
+    print(parse_data.parse_commit_data(fetch_commit))
 
 # if commits weren't fetched, check if they exist (code 409)
 elif fetch_commit == 409:
     print("Repo has no commits!")
-
 
 

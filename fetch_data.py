@@ -6,6 +6,7 @@ import json
 # temporary for testing, asks for repo url to convert to json
 # repo = input("URL for Repo: ")
 
+
 # makes a GET request to GitHub API and converts the response to JSON
 def get_repo_data(owner, name):
 
@@ -14,7 +15,8 @@ def get_repo_data(owner, name):
 
     try:
         # request to github api to get repo information
-        github_request = requests.get(api_link)
+        #TODO handle timeout more gracefully
+        github_request = requests.get(api_link, timeout=5)
 
         # if request was successful, store in json file
         if github_request.status_code == 200:

@@ -2,8 +2,8 @@
 import json
 
 #open and read json file
-def parse_repo_data():
-    with open('data/repo_data.json', 'r') as f:
+def parse_repo_data(filepath):
+    with open(filepath, 'r') as f:
         data = json.load(f)
 
     # link to GitHub for repo
@@ -21,14 +21,14 @@ def parse_repo_data():
 
     return "\n".join(repo_info)
 
-def parse_contributor_data():
+def parse_contributor_data(filepath):
     #number of biggest contributors that will be outputted
     contributors_num = 5
     #list to store contributors
     contributors_list = []
 
-    #open contributor_data.json to read
-    with open('data/contributor_data.json', 'r') as f:
+    #open contributor data file to read
+    with open(filepath, 'r') as f:
         data = json.load(f)
 
     #loop to add contributors to the list
@@ -43,12 +43,12 @@ def parse_contributor_data():
     #return.ist append contributors list.join or something
     return "Biggest Contributors: " + ", ".join(contributors_list)
 
-def parse_commit_data():
+def parse_commit_data(filepath):
     #number of most recent commits to be outputted
     recent_commits_num = 5
     commits_list = []
-    # open contributor_data.json to read
-    with open('data/commit_data.json', 'r') as f:
+    # open commit data file to read
+    with open(filepath, 'r') as f:
         data = json.load(f)
 
 
@@ -63,14 +63,3 @@ def parse_commit_data():
         commits_list.append(f"{i + 1}. {commit_message} by {commit_author} on {commit_date}")
 
     return "Most Recent Commits: \n" + "\n".join(commits_list)
-
-#REPO NAME
-#OWNER
-#DESCRIPTION
-#STARS
-#FORKS
-#OPEN ISSUES
-#LIST OF contributorS (MAY NOT EXIST)
-#MOST RECENT COMMITS (E.G. TOP 5) (MAY NOT EXIST)
-
-
