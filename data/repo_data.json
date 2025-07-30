@@ -66,7 +66,7 @@
     "releases_url": "https://api.github.com/repos/pallets/flask/releases{/id}",
     "deployments_url": "https://api.github.com/repos/pallets/flask/deployments",
     "created_at": "2010-04-06T11:11:59Z",
-    "updated_at": "2025-07-16T04:08:08Z",
+    "updated_at": "2025-07-30T18:44:35Z",
     "pushed_at": "2025-06-12T20:48:14Z",
     "git_url": "git://github.com/pallets/flask.git",
     "ssh_url": "git@github.com:pallets/flask.git",
@@ -74,8 +74,8 @@
     "svn_url": "https://github.com/pallets/flask",
     "homepage": "https://flask.palletsprojects.com",
     "size": 11028,
-    "stargazers_count": 69964,
-    "watchers_count": 69964,
+    "stargazers_count": 70077,
+    "watchers_count": 70077,
     "language": "Python",
     "has_issues": true,
     "has_projects": false,
@@ -83,11 +83,11 @@
     "has_wiki": false,
     "has_pages": false,
     "has_discussions": true,
-    "forks_count": 16501,
+    "forks_count": 16503,
     "mirror_url": null,
     "archived": false,
     "disabled": false,
-    "open_issues_count": 13,
+    "open_issues_count": 16,
     "license": {
         "key": "bsd-3-clause",
         "name": "BSD 3-Clause \"New\" or \"Revised\" License",
@@ -108,9 +108,9 @@
         "wsgi"
     ],
     "visibility": "public",
-    "forks": 16501,
-    "open_issues": 13,
-    "watchers": 69964,
+    "forks": 16503,
+    "open_issues": 16,
+    "watchers": 70077,
     "default_branch": "main",
     "temp_clone_token": null,
     "custom_properties": {},
@@ -135,6 +135,6 @@
         "user_view_type": "public",
         "site_admin": false
     },
-    "network_count": 16501,
-    "subscribers_count": 2106
+    "network_count": 16503,
+    "subscribers_count": 2103
 }
