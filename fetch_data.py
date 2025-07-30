@@ -1,32 +1,27 @@
-# this file handles github api requests and json saving
+# This file handles GitHub API requests and JSON saving
 import requests
 import json
-
-
-# temporary for testing, asks for repo url to convert to json
-# repo = input("URL for Repo: ")
-
 
 # makes a GET request to GitHub API and converts the response to JSON
 def get_repo_data(owner, name):
 
-    #link to GitHub API
+    # link to GitHub API
     api_link = "https://api.github.com/repos/" + owner + "/" + name
 
     try:
-        # request to github api to get repo information
+        # request to GitHub API to get repo information
         #TODO handle timeout more gracefully
         github_request = requests.get(api_link, timeout=5)
 
-        # if request was successful, store in json file
+        # if request was successful, store in JSON file
         if github_request.status_code == 200:
             # convert get request results to a dictionary
             request_dict = github_request.json()
 
-            # convert to json
+            # convert to JSON
             request_json = json.dumps(request_dict, indent=4)
 
-            # write into json file to access later
+            # write into JSON file to access later
             with open('data/repo_data.json', 'w') as f:
                 f.write(request_json)
             return 'data/repo_data.json'
@@ -44,14 +39,14 @@ def get_repo_data(owner, name):
 
 
 def get_contributor_data(owner, name):
-    #link to GitHub API to get contributor information
+    # link to GitHub API to get contributor information
     api_link = "https://api.github.com/repos/" + owner + "/" + name + "/contributors"
 
     try:
-        # request to github api to get repo information
+        # request to GitHub API to get contributor information
         github_request = requests.get(api_link)
 
-        #if request was successful, store in json file
+        # if request was successful, store in JSON file
         if github_request.status_code == 200:
             # convert get request results to a dictionary
             request_dict = github_request.json()
@@ -60,13 +55,13 @@ def get_contributor_data(owner, name):
             request_json = json.dumps(request_dict, indent=4)
 
             # write into json file to access later
-            with open('data/contributor_data.json', 'w') as f:
+            with open("data/contributor_data.json", 'w') as f:
                 f.write(request_json)
-            return 'data/contributor_data.json'
+            return "data/contributor_data.json"
         # if request has a 204 code (the code when there are no contributors), return the code
         elif github_request.status_code == 204:
             return 204
-        # repo not found
+        # contributor data not found
         elif github_request.status_code == 404:
             return 404
         else:
@@ -83,18 +78,18 @@ def get_commit_data(owner, name):
     # link to GitHub API to get contributor information
     api_link = "https://api.github.com/repos/" + owner + "/" + name + "/commits"
     try:
-        # request to github api to get repo information
+        # request to GitHub API to get commit information
         github_request = requests.get(api_link)
 
-        # if request was successful, store in json file
+        # if request was successful, store in JSON file
         if github_request.status_code == 200:
             # convert get request results to a dictionary
             request_dict = github_request.json()
 
-            # convert to json
+            # convert to JSON
             request_json = json.dumps(request_dict, indent=4)
 
-            # write into json file to access later
+            # write into JSON file to access later
             with open('data/commit_data.json', 'w') as f:
                 f.write(request_json)
             return 'data/commit_data.json'
