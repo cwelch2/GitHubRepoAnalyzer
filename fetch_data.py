@@ -1,6 +1,7 @@
 # This file handles GitHub API requests and JSON saving
 import requests
 import json
+import os
 
 # makes a GET request to GitHub API and converts the response to JSON
 def get_repo_data(owner, name):
@@ -10,17 +11,16 @@ def get_repo_data(owner, name):
 
     try:
         # request to GitHub API to get repo information
-        #TODO handle timeout more gracefully
         github_request = requests.get(api_link, timeout=5)
 
         # if request was successful, store in JSON file
         if github_request.status_code == 200:
             # convert get request results to a dictionary
             request_dict = github_request.json()
-
             # convert to JSON
             request_json = json.dumps(request_dict, indent=4)
 
+            os.makedirs("data", exist_ok=True)  #ensure the folder exists
             # write into JSON file to access later
             with open('data/repo_data.json', 'w') as f:
                 f.write(request_json)
@@ -54,6 +54,7 @@ def get_contributor_data(owner, name):
             # convert to json
             request_json = json.dumps(request_dict, indent=4)
 
+            os.makedirs("data", exist_ok=True)  #ensure the folder exists
             # write into json file to access later
             with open("data/contributor_data.json", 'w') as f:
                 f.write(request_json)
@@ -89,6 +90,7 @@ def get_commit_data(owner, name):
             # convert to JSON
             request_json = json.dumps(request_dict, indent=4)
 
+            os.makedirs("data", exist_ok=True)  #ensure the folder exists
             # write into JSON file to access later
             with open('data/commit_data.json', 'w') as f:
                 f.write(request_json)
