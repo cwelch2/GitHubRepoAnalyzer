@@ -37,14 +37,15 @@ elif fetch_commit == 409:
     print("Repo has no commits!")
 
 #Prompt user to delete or retain JSON files
-while True:    #loop until user makes a valid input
-    delete_choice = input("Keep repository JSON files? (y/n): ").strip().lower()
-    if delete_choice in ('y', 'yes', 'no', 'n'):
-        break
-    print("Invalid input. Try again.")
-if delete_choice == 'n' or delete_choice == 'no':
-    remove_files(fetch_repo, fetch_contributor, fetch_commit)
-elif delete_choice == 'y' or delete_choice == 'yes':
-    print("JSON files retained.")
+if fetch_repo == "data/repo_data.json": #only prompt user if repo was found
+    while True:    #loop until user makes a valid input
+        delete_choice = input("Keep repository JSON files? (y/n): ").strip().lower()
+        if delete_choice in ('y', 'yes', 'no', 'n'):
+            break
+        print("Invalid input. Try again.")
+    if delete_choice == 'n' or delete_choice == 'no':
+        remove_files(fetch_repo, fetch_contributor, fetch_commit)
+    elif delete_choice == 'y' or delete_choice == 'yes':
+        print("JSON files retained.")
 
 
